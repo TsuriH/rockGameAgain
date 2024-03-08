@@ -1,0 +1,153 @@
+.PlayArea {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PlayArea .coins-container {
+    display: flex;
+    gap: 65px;
+}
+
+.PlayArea .single-coin-container p {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    font-size: 1.5em;
+
+}
+
+.PlayArea .single-coin-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+
+}
+
+.PlayArea .coins-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+    z-index: 1;
+}
+
+.PlayArea .coin-template {
+    background: white;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    position: relative;
+
+
+}
+
+.PlayArea .winner-shadow {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.09;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.PlayArea .winner-second-shadow {
+
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+}
+
+.PlayArea .winner-third-shadow {
+
+    position: absolute;
+    width: 580px;
+    height: 580px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+}
+
+.PlayArea .coin-shadow {
+    background: black;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+}
+
+.PlayArea .coin-image {
+    width: 110px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.PlayArea .result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
+}
+
+.PlayArea .result-container .result-text {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 55px;
+    letter-spacing: 2px;
+
+}
+
+.PlayArea .result-container .rematch-btn {
+    background: none;
+    border: none;
+    color: hsl(214, 47%, 23%);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background-color: white;
+    padding: 1.2em 2em;
+    border-radius: 7px;
+    font-weight: 600;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+
+}
+
+.PlayArea .result-container .rematch-btn:hover {
+    color: white;
+    background-color: hsl(214, 47%, 23%);
+
+}
+
+.PlayArea .cpu-choice {
+    visibility: visible;
+}
