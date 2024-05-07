@@ -20,11 +20,11 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://TsuriHefer.github.io/rockGameAgain/public",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
+   "scripts": {
+    "build": "react-scripts build",
+    "test":"react-scripts test",
+    "start":"react-scripts start"
+   },
   "eslintConfig": {
     "extends": [
       "react-app",
