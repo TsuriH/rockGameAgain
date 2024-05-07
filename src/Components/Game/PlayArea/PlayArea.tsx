@@ -27,9 +27,10 @@ function PlayArea(props: PlayAreaProps): JSX.Element {
         shadow: "",
     })
 
-    const [whichUserWon, setWhichUserWon] = useState<string>("")
+    const [whichUserWon, setWhichUserWon] = useState<string>()
     const [isHidden, setIsHidden] = useState<boolean>(true)
     const [addShadowCirclesToWinner, setAddShadowCirclesToWinner] = useState<any>()
+    const [count, setCount] = useState<number>(3)
     let randomCpuChoice = ""
 
     const generateCpuChoice = () => {
@@ -106,7 +107,7 @@ function PlayArea(props: PlayAreaProps): JSX.Element {
     useEffect(() => {
         setTimeout(() => {
             setIsHidden(!isHidden)
-          
+
         }, 3000);
     }, [])
 
@@ -115,7 +116,7 @@ function PlayArea(props: PlayAreaProps): JSX.Element {
     }, [])
 
 
- 
+
 
 
     useEffect(() => {
@@ -169,30 +170,44 @@ function PlayArea(props: PlayAreaProps): JSX.Element {
     }, [])
 
     useEffect(() => {
-        setTimeout(() => {
-            
-            // let result = null
-            // if (whichUserWon === "you won") {
-            //     let result = "you won"
-            // }
-            // else if (whichUserWon === "you lost") {
-            //     let result = "you lost"
-            // }
-            
-            setAddShadowCirclesToWinner(whichUserWon)
-            // console.log(`whichUserWon: ${whichUserWon}`)
-            // console.log(`result: ${result}`)
-            // console.log(addShadowCirclesToWinner)
-           
-// problem go over the above and why didnt it went that way why did I get in 183/4 null
+        // setTimeout(() => {
 
-        }, 3000)
+        let result = null
+
+
+        if (whichUserWon) {
+            if (whichUserWon === "you won") {
+                let result = "you won"
+            }
+            else if (whichUserWon === "you lost") {
+                let result = "you lost"
+            }
+        }
+
+        console.log(`whichUserWon: ${whichUserWon}`)
+        console.log(`result: ${result}`)
+        console.log(addShadowCirclesToWinner)
+        console.log("test")
+
 
     }, [whichUserWon]);
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCount((prevCount) => {
+                if (prevCount === 0) {
+                    clearInterval(timer);
+                    return prevCount;
+                }
+                return prevCount - 1;
+            });
+        }, 1000);
 
-    // console.log(userChoice)
-    // console.log(cpuChoice) when it was inside a use effect for some reason it console it at least 6 times I donnow why problem
+        return () => clearInterval(timer);
+    }, []);
+
+
+
 
     // ***UI***
     return (
@@ -201,17 +216,17 @@ function PlayArea(props: PlayAreaProps): JSX.Element {
             <div className="coins-container">
 
                 <div className="single-coin-container">
-                    <p className="user-choice">you picked</p>
+                    <p className="user-choice">you picked </p>
                     <div className="coin-template" style={{ border: `27px solid ${userChosenCoinDetails.borderColor}`, boxShadow: userChosenCoinDetails.shadow }}>
                         <img src={userChosenCoinDetails.image} alt="" className="coin-image" />
 
-                    
-                        { addShadowCirclesToWinner === "you won"? <div className="winner-shadow">
+
+                        {addShadowCirclesToWinner === "you won" ? <div className="winner-shadow">
                             <div className="winner-second-shadow">
                                 <div className="winner-third-shadow">
                                 </div>
                             </div>
-                        </div>: null  }
+                        </div> : null}
 
 
                     </div>
@@ -232,12 +247,15 @@ function PlayArea(props: PlayAreaProps): JSX.Element {
                         <img src={cpuChoiceDetails.image} alt="" className="coin-image" />
                         <div className="coin-shadow" style={isHidden ? { visibility: "visible" } : { visibility: "hidden" }}> </div>
 
-                    { addShadowCirclesToWinner === "you lost" ? <div className="winner-shadow">
+                        <span className="count-down" style={!isHidden ? { visibility: "hidden" } : { visibility: "visible" }}>{count}</span>
+
+                        {addShadowCirclesToWinner === "you lost" ? <div className="winner-shadow">
                             <div className="winner-second-shadow">
                                 <div className="winner-third-shadow">
                                 </div>
                             </div>
-                        </div>: null  }
+
+                        </div> : null}
 
                     </div>
 

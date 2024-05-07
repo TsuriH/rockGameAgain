@@ -18,7 +18,7 @@
     border: 2px solid hsl(217, 16%, 45%);
     border-radius: 15px;
     margin: 0 auto;
-    /* margin-top: 20px; why margin top causes problem and lead to scrolla bar */
+  
 }
 
 .Layout .score-display {

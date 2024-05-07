@@ -1,7 +1,7 @@
 {
+  "homepage": "https://tsurih.github.io/rockGameAgain/",
   "name": "againrockcissors",
   "version": "0.1.0",
-  "homepage": "https://tsurih.github.io/rockGameAgain/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
